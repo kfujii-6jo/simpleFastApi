@@ -1,0 +1,22 @@
+services:
+  # db:
+  #   image: mysql:5.7
+  #   volumes:
+  #     - db_data:/var/lib/mysql 
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root_password
+  #     MYSQL_DATABASE: your_database
+  #     MYSQL_USER: user_name
+  #     MYSQL_PASSWORD: user_password
+
+  api:
+    container_name: api-container
+    build: ./
+    command: uvicorn app:app --host 0.0.0.0 --port 8000
+    # volumes:
+    #   - .:/myapp
+    ports:
+      - "8000:8000"
+    # depends_on:
+    #   - db
